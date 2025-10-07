@@ -30,25 +30,25 @@ public class testcase3 {
 		prop.getScroll().click();
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		int totcount = 2000;        // Max retries after no height change before exit
+		int totcount = 2000;        // how many times the loop runs
 		int  count= 0;
 		long lastcount = (long) js.executeScript("return document.body.scrollHeight");
 
 		while (count < totcount) {
-		    // Scroll to bottom
+		    // Scroll bottom
 		    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-		    // Wait for content to load (adjust wait time as needed)
+		    // Wait for loading
 		    Thread.sleep(500);
 
-		    // Get new scroll height
+		    // new scroll
 		    long newcount = (long) js.executeScript("return document.body.scrollHeight");
 
 		    if (newcount == lastcount) {
-		        // No new content loaded, increase try counter
+		        // No loading, increace count
 		        count++;
 		    } else {
-		        // New content loaded, reset try counter and update lastHeight
+		        // loading, update count
 		        count = 0;
 		        lastcount = newcount;
 		    }
@@ -56,3 +56,4 @@ public class testcase3 {
 	}
 
 }
+

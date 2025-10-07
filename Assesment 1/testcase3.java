@@ -19,7 +19,8 @@ public class testcase3 {
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get("https://the-internet.herokuapp.com");
-		
+
+		//read data from elements folder
 		Elements prop = new Elements(driver);
 		
 		Actions act = new Actions(driver);
@@ -30,25 +31,25 @@ public class testcase3 {
 		prop.getScroll().click();
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		int totcount = 2000;        // Max retries after no height change before exit
+		int totcount = 2000;        // Total times loop execute
 		int  count= 0;
 		long lastcount = (long) js.executeScript("return document.body.scrollHeight");
 
 		while (count < totcount) {
-		    // Scroll to bottom
+		    // bottom scroll
 		    js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-		    // Wait for content to load (adjust wait time as needed)
+		    // Wait for load
 		    Thread.sleep(500);
 
-		    // Get new scroll height
+		    // Get new scroll
 		    long newcount = (long) js.executeScript("return document.body.scrollHeight");
 
 		    if (newcount == lastcount) {
-		        // No new content loaded, increase try counter
+		        // if No loading, increase try count
 		        count++;
 		    } else {
-		        // New content loaded, reset try counter and update lastHeight
+		        // after loading , update count
 		        count = 0;
 		        lastcount = newcount;
 		    }
@@ -56,3 +57,4 @@ public class testcase3 {
 	}
 
 }
+

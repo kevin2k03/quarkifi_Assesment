@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="quarkifi_Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="quarkifi.testcase1"/>
+      <class name="quarkifi.testcase2"/>
+      <class name="quarkifi.testcase3"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- quarkifi_Suite -->

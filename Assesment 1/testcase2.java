@@ -32,7 +32,7 @@ public class testcase2 {
 		
 		prop.getPopup().click();
 		
-		
+		//switch control to popup
 		Alert pop = driver.switchTo().alert();
 		Thread.sleep(1000);
 
@@ -43,3 +43,4 @@ public class testcase2 {
 	}
 
 }
+
